@@ -17,7 +17,7 @@
 <!-- 先引入jquery,再引入bootstrap -->
 <script type="text/javascript" src="/resource/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body style="overflow:-Scroll;overflow-x:hidden">
 
 	<div class="container-fluid">
 		<!-- head -->
@@ -30,7 +30,6 @@
 		</div>
 
 		<div class="row" style="margin-top: 10px" >
-			<div class="col-md-1"></div>
 			<div class="col-md-7">
 				<h2>${article.title }</h2>
 				<p>${article.user.username}
@@ -44,8 +43,7 @@
 				     <button type="button" onclick="collect(1)" class="btn btn-link">☆ &nbsp;  未收藏</button>
 				</c:if>
 				<hr>
-				${article.content}
-
+					<span>${article.content}</span>
 				<hr>
 				<!-- 文章评论 -->
 				<c:if test="${null!= sessionScope.user }">
