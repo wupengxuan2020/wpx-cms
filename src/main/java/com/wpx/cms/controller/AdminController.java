@@ -23,6 +23,44 @@ public class AdminController {
 	@Resource
 	private UserService userService;
 	
+		/*<insert id="insert">
+	
+		insert into cms_log(visit_date,article_id,username)
+		values(#{visitDate},#{articleId},#{username})
+	</insert>
+	
+	<update id="update">
+	
+	
+	insert into cms_count(article_id,visit_num) select article_id ,count(id) from cms_log group by article_id 
+	 
+	</update>
+	
+	<delete id="delete">
+	delete from cms_count 
+	
+	</delete>
+	
+	<select id="selects" resultType="Article">
+	select a.article_id as id, a.visit_num as hits,b.title from cms_count a  
+	LEFT JOIN cms_article  b on a.article_id  =b.id 
+	order by visit_num desc
+	
+	</select>*/
+	/*È¥ÉèÖÃ
+	@GetMapping("settings")
+	public String settings() {
+		return "admin/settings";
+		
+	}*/
+	/*Ö´ÐÐSQL
+	@Resource
+	ArticleLogService articleLogService;
+	@ResponseBody
+	@PostMapping("execute")
+	public boolean execute() {
+		return articleLogService.update() >0;
+	}*/
 	
 	/**
 	 * 

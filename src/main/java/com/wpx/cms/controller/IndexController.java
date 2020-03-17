@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,12 +17,14 @@ import com.github.pagehelper.PageInfo;
 import com.wpx.cms.domain.Article;
 import com.wpx.cms.domain.Category;
 import com.wpx.cms.domain.Channel;
+import com.wpx.cms.domain.Choose;
 import com.wpx.cms.domain.Collect;
 import com.wpx.cms.domain.Comment;
 import com.wpx.cms.domain.Slide;
 import com.wpx.cms.domain.User;
 import com.wpx.cms.service.ArticleService;
 import com.wpx.cms.service.ChannelService;
+import com.wpx.cms.service.ChooseService;
 import com.wpx.cms.service.CollectService;
 import com.wpx.cms.service.CommentService;
 import com.wpx.cms.service.SlideService;
@@ -44,6 +47,13 @@ public class IndexController {
 	
 	@Resource
 	private CollectService collectService;
+	
+	/*@Resource
+	private VoteService voteService;*/
+	//ндуб╣Ц╩Веепп╟Я
+			/*List<Article> topArticles = articleLogService.selects();
+			model.addAttribute("topArticles", topArticles);*/
+	
 	/**
 	 * 
 	 * @Title: index 
@@ -155,6 +165,19 @@ public class IndexController {
 			comment.setCreated(new Date());
 			
 			return commentService.insert(comment)>0;
+		}
+		@Resource
+		private ChooseService chooseService;
+		
+		@GetMapping("publishVote")
+		public String publishVote(){
+			return "/index/vote";
+		}
+		@ResponseBody
+		@RequestMapping("publishVote")
+		public boolean 	publishVote(Choose choose){
+			
+			return chooseService.insert(choose)>0;
 		}
 
 }

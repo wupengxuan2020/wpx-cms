@@ -177,6 +177,20 @@
 						</c:forEach>
 					</div>
 				</div>
+				<div class="card" style="width: 18rem; margin-top: 6px">
+					<div class="card-header">评选</div>
+					<div class="card-body">
+						<!-- 最新文章 --10篇 -->
+							<c:forEach items="${lastArticles.list}" var="lastArticle" varStatus="i">
+							<div class="media">
+								<div class="media-body">
+									<span style="color:${i.count==1?"red":i.count==2?"green":i.count==3?"pink":"black"}">${i.count }&nbsp;</span>${lastArticle.title }
+								</div>
+							</div>
+							<hr>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 
 		</div>
@@ -202,6 +216,12 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+		function px() {
+			$.get("/publishVote",function(){
+				
+			})
+		}
+	
 		//注册
 		function reg() {
 			$("#title").append("用户注册");

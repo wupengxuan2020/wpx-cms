@@ -20,9 +20,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.github.pagehelper.PageInfo;
 import com.wpx.cms.domain.Article;
+import com.wpx.cms.domain.Choose;
 import com.wpx.cms.domain.Collect;
 import com.wpx.cms.domain.User;
 import com.wpx.cms.service.ArticleService;
+import com.wpx.cms.service.ChooseService;
 import com.wpx.cms.service.CollectService;
 
 /**
@@ -129,6 +131,8 @@ public class MyController {
 		
 		
 	}
+
+	
 	
 	@RequestMapping("showCollect")
 	public String collect(Integer id,Article article,Model model,User user,HttpSession session,@RequestParam(defaultValue = "1") Integer page,@RequestParam(defaultValue = "3")Integer pageSize) {
